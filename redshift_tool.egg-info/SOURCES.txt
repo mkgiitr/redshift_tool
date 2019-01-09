@@ -1,0 +1,11 @@
+MANIFEST.in
+README.rst
+setup.py
+redshift_tool/__init__.py
+redshift_tool/redshift_tool.py
+redshift_tool.egg-info/PKG-INFO
+redshift_tool.egg-info/SOURCES.txt
+redshift_tool.egg-info/dependency_links.txt
+redshift_tool.egg-info/not-zip-safe
+redshift_tool.egg-info/requires.txt
+redshift_tool.egg-info/top_level.txt
