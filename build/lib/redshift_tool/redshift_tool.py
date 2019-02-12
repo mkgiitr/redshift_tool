@@ -10,7 +10,7 @@ def query(data,method,redshift_auth=None,s3_auth=None,schema=None,table=None,pri
     con.commit()
     cur.close()
     con.close()
-    print("\x1B[3mInfo: Your redshift cluser have "+str(availableslices)+" slices and "+str(len(data.index))+" records in supplied pandas dataframe.\x1B[23m")
+    print("\x1B[3mInfo: Your redshift cluster have "+str(availableslices)+" slices and "+str(len(data.index))+" records in supplied pandas dataframe.\x1B[23m")
     if table_ifexits == 'True':
         print("Table already exists into provided schema, Proceeding to next step.")
     else:
@@ -71,7 +71,7 @@ def query(data,method,redshift_auth=None,s3_auth=None,schema=None,table=None,pri
         cur.close()
         con.close()
     elif method.lower()=='upsert':
-        create = "create temp table "+str("stage")+str(table)+str(" (like ")+str(table)+")"
+        create = "create temp table "+str("stage")+str(table)+str(" (like ")+str(schema)+str(".")+str(table)+")"
         copy = "COPY "+str("stage")+str(table)+" from 's3://"+str(s3_auth['bucket'])+"/tmp_pkg_pandas2redshift' "+"credentials 'aws_access_key_id="+str(s3_auth['accesskey'])+";aws_secret_access_key="+str(s3_auth['secretkey'])+"' DELIMITER ',' IGNOREHEADER 1 csv"
         s = ""
         if isinstance(upsertkey,tuple):

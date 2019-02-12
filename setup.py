@@ -6,7 +6,7 @@ def readme():
 
 
 setup(name='redshift_tool',
-      version='0.3',
+      version='0.4',
       description='Elegant data load from Pandas to Redshift',
       long_description=readme(),
       classifiers=[
